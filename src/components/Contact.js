@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import FacebookLogo from "../../assets/facebook.svg";
-import InstaLogo from "../../assets/instalogoB&W.svg";
-import EmailLogo from "../../assets/emailLogo.svg";
+import FacebookLogo from "../assets/logos/facebook.svg";
+import InstaLogo from "../assets/logos/instalogoB&W.svg";
+import EmailLogo from "../assets/logos/emailLogo.svg";
 
 const Contact = (props) => {
   let [ inputText, setInputText ] = useState("");
@@ -16,11 +16,11 @@ const Contact = (props) => {
         Reach out for information about prints and commissioned work 
       </p>
       <div className="contact-logo-container">
-        <a href="mailto:acgallos@gmail.com">
+        <a href="#">
           <img className="social-logo" src={EmailLogo} />
         </a>
         
-        <a href="https://www.instagram.com/scout_berry/">
+        <a href="https://www.instagram.com/jack_the_space_cat/">
           <img className="social-logo" src={InstaLogo} />
         </a>
       </div>

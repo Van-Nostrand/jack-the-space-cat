@@ -8,6 +8,7 @@ import {useIntersectionObserver} from "../functions/useIntersectionObserver";
  */
 const ImageWithObserver = ({source, name}) => {
 
+
   const [ showImage, setShowImage ] = useState(false);
   const placeholderRef = useRef(null);
 
@@ -21,7 +22,7 @@ const ImageWithObserver = ({source, name}) => {
   if(showImage){
     return(
       <div className="img-div">
-        <Link to={`/details/${name.split(" ").join("-")}`} >
+        <Link to={`/details/${name.split(" ").join("")}`} >
           <div className="img-hover-text" >more info</div>
           <div className="img-hover-filter"></div>
           <img className="img-thumb" src={source} alt="artwork" />

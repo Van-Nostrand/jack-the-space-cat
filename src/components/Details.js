@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import useGetWindowSize from "../functions/useGetWindowSize";
-import EmailLogo from "../../assets/emailLogo.svg";
+import EmailLogo from "../assets/logos/emailLogo.svg";
 
 const Details = ({artData}) => {
 
@@ -34,10 +34,9 @@ const Details = ({artData}) => {
       <div className="info-div">
         <div className="art-title">{imageData.name}</div>
         <div className="medium">{imageData.medium}</div>
-        {/* <div className="date-div">{imageData.date}</div> */}
-        {/* <div className="description">{imageData.description}</div> */}
+   
         <div className="size">{imageData.size}</div>
-        <a href={`mailto:acgallos@gmail.com?subject=Inquiry: ${imageData.name}`}>
+        <a href="#">
           <img src={EmailLogo} />
             pricing and prints
         </a>

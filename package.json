@@ -1,7 +1,7 @@
 {
-  "name": "annies-gallery-2",
+  "name": "jack-the-space-cat",
   "version": "1.0.0",
-  "description": "scoutberry art gallery website",
+  "description": "website for the art of Renzo",
   "main": "index.js",
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production",
@@ -16,7 +16,8 @@
     "pm2": "^4.5.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "sharp": "^0.27.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
