@@ -1,0 +1,158 @@
+@use "../abstracts/vars";
+@use "../abstracts/mixins";
+
+.navbar {
+  position:fixed;
+  top: 0;
+  height: 100vh;
+  width: vars.$sidenav-width;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 4fr 2fr;
+  grid-template-areas: 
+    "title title title"
+    "links links links"
+    "icon icon icon";
+
+  font-size: 4rem;
+  background-color: vars.$color-nav-background;
+  z-index:1;
+
+  
+
+  @include mixins.respond(phone) { 
+    height: vars.$phonenav-height;
+    width: 100vw;
+
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: 
+      "title . ."
+      "links links links";
+  }
+
+  .title-container {
+    position: relative;
+
+    text-align: center;
+    color: white;
+    font-size: 1.3em;
+    font-family: "Staatliches";
+
+    opacity: 1;
+    margin-top: 3.6rem;
+
+    grid-area: title;
+
+    @include mixins.respond(phone){
+      margin-top: 0;
+      margin-left: 1rem;
+    }
+
+    
+
+    h1 {
+      display: inline-block;
+    }
+  }
+
+  .link-container {
+    position: relative;
+    align-self: flex-start;
+    justify-self: start;
+    height: 100%;
+
+    max-width: 100%;
+
+    margin-top: 2rem;
+    
+    grid-area: links;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+      "about . ."
+      ". works ."
+      ". . contact";
+
+    @include mixins.respond(phone){
+      grid-template-rows: 1fr;
+      grid-template-areas: 
+        "about works contact";
+      width: 80%;
+      z-index: 3;
+      margin-top: 0;
+      margin-left: 1rem;
+      align-items: start;
+    }
+    
+    a {
+      border: none;
+      font-size: 0.7em;
+      font-family: "Helvetica", sans-serif;
+      color: white;
+      width: max-content;
+      height: max-content;
+      margin-top: 3.6rem;
+     
+      transform: rotate(90deg) ;
+
+      @include mixins.respond(phone){
+        transform: rotate(0);
+      }
+    }
+    a:nth-of-type(1) {
+      grid-area: about;
+    }
+
+    a:nth-of-type(2) {
+      grid-area: works;
+    }
+
+    a:nth-of-type(3) {
+      grid-area: contact;
+    }
+  }
+
+  .navimage {
+    position: relative;
+    justify-self: flex-end;
+
+    grid-area: icon;
+    align-self: end;
+    width: 100%;
+
+    @include mixins.respond(phone){
+      grid-column: 2 / span 2;
+      grid-row: 1 / span 2;
+    }
+
+  }
+}
+
+.title-container.landing-nav-title,
+.link-container.landing-nav-links {
+  opacity: 0;
+}
+
+.top-nav-shrink {
+  height: vars.$sidenav-width - 7rem;
+}
+
+.shrink-nav {
+  transform: translateY(-10rem);
+  .title-container {
+    transform: translateY(10rem);
+  }
+  .link-container {
+    transform: translateY(5.3rem);
+  }
+  .navimage {
+    transform: scale(0.6) translate(8rem, 5.3rem);
+  }
+}
+
+.navbar, .title-container, .link-container, .navimage {
+  transition: all 85ms ease-in;
+}

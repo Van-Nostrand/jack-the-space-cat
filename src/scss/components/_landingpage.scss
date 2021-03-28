@@ -1,0 +1,49 @@
+@use "../abstracts/vars";
+@use "../abstracts/mixins";
+
+
+.landing-page-container {
+  font-family: Staatliches;
+  font-size: 15rem;
+  font-weight: normal;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  @include mixins.respond(phone){
+    width: 100%;
+    font-size: 10rem;
+  }
+
+  .landing-title {
+    // transform: translate(-400px, -400px);
+    margin-top: 10rem;
+    max-width: 100%;
+
+    @media only screen and (min-width: 401px) { font-size: 0.9em; };
+    @media only screen and (max-width: 400px) { font-size: 0.85em; };
+    @media only screen and (max-width: 370px) { font-size: 0.75em; };
+  }
+
+  .link-container {
+
+    display: flex; 
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 85%;
+    margin-top: 1rem;
+
+    a {
+      font-size: 0.3em;
+      // margin: 2rem;
+    }
+  }
+
+  .movediv {
+    transition: transform 2s ease-in;
+    transform: translate(0,0);
+  }
+}
