@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import ImageWithObserver from "./ImageWithObserver";
 import useGetWindowSize from "../functions/useGetWindowSize";
-import * as Sharp from "sharp";
+// import * as Sharp from "sharp";
 
 const ImageGallery = ({ selectWork, setCurrentPage}) => {
 
@@ -22,14 +22,15 @@ const ImageGallery = ({ selectWork, setCurrentPage}) => {
 
   }
 
-  const importAndMerge = (r1, r2) => {
-    let images = r1.keys().map(r1);
-    let data = r2.keys().map(r2);
-    let merged = images.map((image, i) => {
+  const importAndMerge = (r) => {
+
+    let data = r.keys().map(r);
+    
+    // keys = keys.map(key => key.split(/[.|/]/).filter(string => string.length > 0));
+    let merged = data.map((image, i) => {
       return ({
-        filepath: image,
-        name: data[i].name,
-        info: data[i].info
+        file: require(`../assets/artwork/${image.filename}`),
+        ...image
       })
     })
     return merged;
@@ -69,7 +70,7 @@ const ImageGallery = ({ selectWork, setCurrentPage}) => {
     // let images = importAll(require.context('../assets/artwork/', false, /.(jpe?g|png)$/), false);
     // let imagejson = importAll(require.context('../assets/artwork/', false, /.json$/), true);
 
-    let alldata = importAndMerge(require.context('../assets/artwork/', false, /.(jpe?g|png)$/), require.context('../assets/artwork/', false, /.json$/));
+    let alldata = importAndMerge(require.context('../assets/artwork/', false, /.json$/));
 
     setImageData(alldata);
     // setImagePaths(images);
@@ -91,10 +92,12 @@ const ImageGallery = ({ selectWork, setCurrentPage}) => {
 
   else{
     let imageElements = imageData.map((artwork, i) => {
+
+      // let thisimage = Sharp(artwork.filepath).resize(500)
       
       return <ImageWithObserver 
-                name={artwork.name}
-                source={artwork.filepath}
+                alldata={artwork}
+                source={artwork.file}
                 key={`image-element-${i}`} />
     }); 
     return(

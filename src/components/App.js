@@ -16,6 +16,11 @@ export default function App(){
   let contentRef = useRef(null);
   let [ currentPage, setCurrentPage ] = useState();
 
+  /**
+   * TODO
+   * if currentpage === gallery or details, import images
+   */
+
   // SCROLL EFFECT STUFF
   let scrollTargetRef = useRef(null);
   let smallNav = useCustomScrollRef(150);

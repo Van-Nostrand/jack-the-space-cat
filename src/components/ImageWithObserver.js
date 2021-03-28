@@ -1,12 +1,12 @@
 import React, {useState, useEffect, useRef} from "react";
 import { Link } from "react-router-dom";
-import {useIntersectionObserver} from "../functions/useIntersectionObserver";
+import { useIntersectionObserver } from "../functions/useIntersectionObserver";
 
 /**
  * loads a placeholder until the image is ready to load
  * @param {source} props path/name of image file
  */
-const ImageWithObserver = ({source, name}) => {
+const ImageWithObserver = ({source, alldata}) => {
 
 
   const [ showImage, setShowImage ] = useState(false);
@@ -22,7 +22,7 @@ const ImageWithObserver = ({source, name}) => {
   if(showImage){
     return(
       <div className="img-div">
-        <Link to={`/details/${name.split(" ").join("")}`} >
+        <Link to={`/details/${alldata.filename.split(/.(jpe?g|png)$/)[0]}`} >
           <div className="img-hover-text" >more info</div>
           <div className="img-hover-filter"></div>
           <img className="img-thumb" src={source} alt="artwork" />
