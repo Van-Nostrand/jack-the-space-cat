@@ -1,12 +1,14 @@
 import React, {useState, useEffect, useRef} from "react";
 import { Link } from "react-router-dom";
 import { useIntersectionObserver } from "../functions/useIntersectionObserver";
+import {Image, Transformation, CloudinaryContext } from "cloudinary-react";
+import { cloud_name } from "../config/config";
 
 /**
  * loads a placeholder until the image is ready to load
- * @param {source} props path/name of image file
+ * @param {imageData} props an object that holds the path of image file
  */
-const ImageWithObserver = ({source, alldata}) => {
+const ImageWithObserver = ({imageData}) => {
 
 
   const [ showImage, setShowImage ] = useState(false);
@@ -22,10 +24,14 @@ const ImageWithObserver = ({source, alldata}) => {
   if(showImage){
     return(
       <div className="img-div">
-        <Link to={`/details/${alldata.filename.split(/.(jpe?g|png)$/)[0]}`} >
+        <Link to={`/details:${imageData.name.replace(" ", "+")}`} >
           <div className="img-hover-text" >more info</div>
           <div className="img-hover-filter"></div>
-          <img className="img-thumb" src={source} alt="artwork" />
+          <CloudinaryContext cloudName={cloud_name}>
+            <Image publicId={imageData.publicId} >
+              <Transformation />
+            </Image>
+          </CloudinaryContext>
         </Link>
       </div>
       

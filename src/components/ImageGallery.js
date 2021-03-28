@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import ImageWithObserver from "./ImageWithObserver";
 import useGetWindowSize from "../functions/useGetWindowSize";
+import { Image, Transformation, CloudinaryContext } from "cloudinary-react";
 // import * as Sharp from "sharp";
 
 const ImageGallery = ({ selectWork, setCurrentPage}) => {
@@ -93,11 +94,8 @@ const ImageGallery = ({ selectWork, setCurrentPage}) => {
   else{
     let imageElements = imageData.map((artwork, i) => {
 
-      // let thisimage = Sharp(artwork.filepath).resize(500)
-      
       return <ImageWithObserver 
-                alldata={artwork}
-                source={artwork.file}
+                imageData={artwork}
                 key={`image-element-${i}`} />
     }); 
     return(
