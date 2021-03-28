@@ -10,6 +10,8 @@ import LandingPage from "./LandingPage";
 import useCustomScrollRef from "../functions/useCustomScrollRef";
 import useGetWindowSize from "../functions/useGetWindowSize";
 
+import { ART_DATA } from "../constants/CONSTANTS";
+
 
 export default function App(){
 
@@ -32,7 +34,7 @@ export default function App(){
   return(
     
     <Router>
-      <Navbar currentPage={currentPage} />
+      <Navbar navClass={"navbar"} currentPage={currentPage} />
       <div ref={contentRef} className='content-container' >
         <Switch>
           <Route exact path="/">
@@ -43,7 +45,7 @@ export default function App(){
           <Route path="/gallery">
             <ImageGallery 
               setCurrentPage={setCurrentPage}  
-             
+              artData={ART_DATA}
             />
           </Route>
           <Route path="/contact">
@@ -51,7 +53,7 @@ export default function App(){
               setCurrentPage={setCurrentPage} 
             />
           </Route>
-          <Route path="/details/:name" children={<Details />} /> 
+          <Route path="/details/:name" children={<Details artData={ART_DATA} />} /> 
         </Switch>
       </div>
     </Router>

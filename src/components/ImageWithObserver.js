@@ -2,14 +2,13 @@ import React, {useState, useEffect, useRef} from "react";
 import { Link } from "react-router-dom";
 import { useIntersectionObserver } from "../functions/useIntersectionObserver";
 import {Image, Transformation, CloudinaryContext } from "cloudinary-react";
-import { cloud_name } from "../config/config";
+import cloud_name from "../config/config";
 
 /**
  * loads a placeholder until the image is ready to load
  * @param {imageData} props an object that holds the path of image file
  */
-const ImageWithObserver = ({imageData}) => {
-
+const ImageWithObserver = ({imageData, width}) => {
 
   const [ showImage, setShowImage ] = useState(false);
   const placeholderRef = useRef(null);
@@ -18,18 +17,15 @@ const ImageWithObserver = ({imageData}) => {
     useIntersectionObserver(placeholderRef.current, setShowImage);
   },[]);
 
-  /*
-  I'll have to address this eventually. I made the Link element the clickable thing but it used to be the parent div. Now ONLY the text is clickable, but I want the whole image to be clickable. 
-  */
   if(showImage){
     return(
       <div className="img-div">
-        <Link to={`/details:${imageData.name.replace(" ", "+")}`} >
+        <Link to={`/details/${imageData.name.toLowerCase().replace(/( )/gi, "+")}`} >
           <div className="img-hover-text" >more info</div>
           <div className="img-hover-filter"></div>
-          <CloudinaryContext cloudName={cloud_name}>
+          <CloudinaryContext cloudName={cloud_name.cloud_name}>
             <Image publicId={imageData.publicId} >
-              <Transformation />
+              <Transformation width={width} crop="scale" />
             </Image>
           </CloudinaryContext>
         </Link>
