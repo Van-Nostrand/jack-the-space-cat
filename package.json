@@ -1,6 +1,9 @@
 {
   "name": "jack-the-space-cat",
   "version": "1.0.0",
+  "engines": {
+    "npm": "7.x"
+  },
   "description": "website for the art of Renzo",
   "main": "index.js",
   "scripts": {
