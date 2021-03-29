@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useIntersectionObserver } from "../functions/useIntersectionObserver";
-import {Image, Transformation, CloudinaryContext } from "cloudinary-react";
+import { Image, Transformation, CloudinaryContext } from "cloudinary-react";
 import cloud_name from "../config/config";
 
 /**
@@ -30,7 +30,6 @@ const ImageWithObserver = ({imageData, width}) => {
           </CloudinaryContext>
         </Link>
       </div>
-      
     )
   }
 
