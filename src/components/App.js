@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Details from "./Details";
 import Navbar from "./Navbar";
-import Contact from "./Contact";
-import ImageGallery from "./ImageGallery";
-import LandingPage from "./LandingPage";
+
+import Contact from "../views/Contact";
+import ImageGallery from "../views/ImageGallery";
+import LandingPage from "../views/LandingPage";
 
 import useCustomScrollRef from "../functions/useCustomScrollRef";
 import useGetWindowSize from "../functions/useGetWindowSize";
