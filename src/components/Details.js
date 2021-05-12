@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import useGetWindowSize from "../functions/useGetWindowSize";
-import EmailLogo from "../assets/logos/emailLogo.svg";
+import EmailLogo from "../assets/logos/whiteemaillogo.svg";
 // import ImageWithObserver from "./ImageWithObserver";
 import { Image, Transformation, CloudinaryContext } from "cloudinary-react";
 import cloud_name from "../config/config";
@@ -31,7 +31,7 @@ const Details = ({ artData }) => {
         <div className="medium">{theImage.medium}</div>
    
         
-        <a href="#">
+        <a href={`mailto:renzoman@gmail.com?subject=${theImage.name}`}>
           <img src={EmailLogo} />
             pricing and prints
         </a>

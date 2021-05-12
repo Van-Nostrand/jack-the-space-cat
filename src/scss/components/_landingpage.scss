@@ -21,6 +21,8 @@
     margin-top: 10rem;
     max-width: 100%;
 
+    color: #c7c7c7;
+    text-shadow: 1px 2px 2px black;
     @media only screen and (min-width: 401px) { font-size: 0.9em; };
     @media only screen and (max-width: 400px) { font-size: 0.85em; };
     @media only screen and (max-width: 370px) { font-size: 0.75em; };
@@ -37,6 +39,8 @@
 
     a {
       font-size: 0.3em;
+      color: #c7c7c7;
+    text-shadow: 1px 2px 2px black;
       // margin: 2rem;
     }
   }

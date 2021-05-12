@@ -18,9 +18,8 @@ const TopNav = (props) => {
   let jackLogo = <img className='topnav-jack-logo' src={require('../assets/logos/jacklogo.png')} />
 
 
-  console.log(props.bigNav)
   return(
-    <nav className={`topnav ${props.bigNav ? 'topnav-big' : ''} ${currentPage.pathname === '/' ? 'landing-topnav' : ''}`} >
+    <nav className={`topnav${props.bigNav ? '' : ' topnav-small'}${currentPage.pathname === '/' ? ' landing-topnav' : ''}`} >
 
       <Link to="/gallery">
         Gallery
