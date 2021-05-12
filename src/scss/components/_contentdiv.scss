@@ -6,13 +6,11 @@
   padding: 3rem;
   
   display: inline-block;
-  background-color: #fff;
-  margin-left: vars.$sidenav-width;
-  width: 100%;
+  margin-top: 35rem;
+  width: 100vw;
   min-height: 100%;
   box-sizing: border-box;
-
-  // background-color: purple;
+  
 
   @include mixins.respond(phone){
     margin-left: unset;

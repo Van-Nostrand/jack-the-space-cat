@@ -46,3 +46,18 @@
     transform: translate(0,0);
   }
 }
+
+.landing-navbar {
+  position: fixed;
+  top: 0;
+  
+  margin: 0;
+  width: 100vw;
+  height: 30rem;
+
+  display: grid;
+
+  .landing-nav-title {
+    display: none;
+  }
+}

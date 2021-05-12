@@ -54,11 +54,25 @@ body {
   min-height: 100vh;
   height: auto;
 
+  background-image: url('../assets/space-background.jpg');
+  background-size: contain;
+  background-repeat: repeat-y;
+
   @include mixins.respond(phone){
     flex-flow: column;
     min-height: unset;
     height: unset;
   }
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  // left: 0;
+  width: 100%;
+  max-width: 100vw;
 }
 
 

@@ -10,6 +10,11 @@ module.exports = {
     publicPath: "/",
     assetModuleFilename: "images/[hash]-[name][ext]"
   },
+  resolve: {
+    alias: {
+      Images: path.resolve(__dirname, 'src/assets/')
+    }
+  },
   module: {
     rules: [
       {
@@ -34,7 +39,8 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|svg|png|gif)$/,
-        type: "asset/resource"
+        type: "asset/resource",
+       
       },
       {
         test: /\.css$/,

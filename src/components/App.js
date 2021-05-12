@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Details from "./Details";
 import Navbar from "./Navbar";
+import TopNav from "./TopNav";
 
 import Contact from "../views/Contact";
 import ImageGallery from "../views/ImageGallery";
@@ -12,30 +13,26 @@ import useCustomScrollRef from "../functions/useCustomScrollRef";
 import useGetWindowSize from "../functions/useGetWindowSize";
 
 import { ART_DATA } from "../constants/CONSTANTS";
-
+import { useScrollingEffect } from '../functions/useScrollingEffect';
 
 export default function App(){
 
-  let contentRef = useRef(null);
+  let contentRef = useRef();
   let [ currentPage, setCurrentPage ] = useState();
+  let engageEffect = useScrollingEffect();
+  
 
   /**
    * TODO
    * if currentpage === gallery or details, import images
    */
 
-  // SCROLL EFFECT STUFF
-  let scrollTargetRef = useRef(null);
-  let smallNav = useCustomScrollRef(150);
-  // SCROLL EFFECT STUFF
-
-  let currentWindowSize = useGetWindowSize();
-
-
-  return(
+  return (
     
     <Router>
-      <Navbar navClass={"navbar"} currentPage={currentPage} />
+      {/* <Navbar navClass={currentPage === '/' ? 'landing-navbar' : 'navbar'} currentPage={currentPage} /> */}
+      <TopNav bigNav={engageEffect} />
+     
       <div ref={contentRef} className='content-container' >
         <Switch>
           <Route exact path="/">

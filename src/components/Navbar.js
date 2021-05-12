@@ -2,43 +2,37 @@ import React, {useState, useEffect} from "react";
 import { Link, useLocation } from "react-router-dom";
 // import NavbarBackgroundImage from "../../assets/martinandI-draft4.svg";
 
+import ImageWithObserver  from './ImageWithObserver';
+
 const Navbar = (props) => {
-  let [ landingNav, setLandingNav ] = useState();
+  // let [ landingNav, setLandingNav ] = useState();
   let [ shrinkNav, setShrinkNav ] = useState();
 
-  let current = useLocation();
-
-  const checkNav = () => {
-    setLandingNav(current.pathname === "/" );
-  }
-
-  const shrinkTheNav = () => {
-    setShrinkNav(!shrinkNav);
-  }
+  let currentPage = useLocation();
 
   useEffect(() => {
-    checkNav();
-  })
+    setShrinkNav(currentPage.pathname === '/');
+  },[currentPage]);
 
-  let imgclass = `navimage`;
-  let titleclass = `title-container ${props.currentPage === "/" ? "landing-nav-title" : ""}`;
-  let linksclass = `link-container ${props.currentPage === "/" ? "landing-nav-links" : ""}`
+
+  let jackLogo = <img className='nav-jack-logo' src={require('../assets/logos/jacklogo.png')} />
+
 
   return(
-    <nav className={props.navClass} >
+    <nav className={`navbar ${currentPage.pathname === '/' ? 'landing-navbar' : ''}`} >
 
-      <Link to="/" className={titleclass}>
+      <Link to="/" className={`title-container ${currentPage.pathname === '/' ? 'landing-nav-title' : ''}`}>
         JACK THE SPACE CAT
       </Link>
 
-      <div className={linksclass}>
+      {jackLogo}
+
+      <div className={`link-container ${currentPage.pathname === "/" ? "landing-nav-links" : ''}`}>
 
         <Link to="/gallery">Gallery</Link>
         <Link to="/contact">Contact</Link>
     
       </div>
-
-      {/* <img className={imgclass} src={NavbarBackgroundImage} alt='martinandi' onClick={shrinkTheNav} /> */}
     </nav>
   );
 }

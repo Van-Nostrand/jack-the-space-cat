@@ -19,25 +19,22 @@ const ImageWithObserver = ({imageData, width}) => {
 
   if(showImage){
     return(
-      <div className="img-div">
-        <Link to={`/details/${imageData.name.toLowerCase().replace(/( )/gi, "+")}`} >
-          <div className="img-hover-text" >more info</div>
-          <div className="img-hover-filter"></div>
+        <Link className='thumbnail' to={`/details/${imageData.name.toLowerCase().replace(/( )/gi, "+")}`} >
+          <div className="thumbnail-hover-text" >more info</div>
           <CloudinaryContext cloudName={cloud_name.cloud_name}>
             <Image publicId={imageData.publicId} >
               <Transformation width={width} crop="scale" />
             </Image>
           </CloudinaryContext>
         </Link>
-      </div>
     )
   }
 
   return(
-    <div ref={placeholderRef} className="img-div"  >
-      <div className="img-hover-text">more info</div>
-      <div className="img-hover-filter"></div>
-      <span className="img-thumb" ></span>
+    <div ref={placeholderRef} className="thumbnail-div"  >
+      <div className="thumbnail-hover-text">more info</div>
+      <div className="thumbnail-hover-filter"></div>
+      <span className="thumbnail-thumb" ></span>
     </div>
   )
 }
