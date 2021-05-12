@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import FacebookLogo from "../assets/logos/facebook.svg";
+// import FacebookLogo from "../assets/logos/facebook.svg";
 import InstaLogo from "../assets/logos/instalogoB&W.svg";
 import EmailLogo from "../assets/logos/whiteemaillogo.svg";
 
@@ -24,7 +24,7 @@ const Contact = (props) => {
           <img className="social-logo" src={InstaLogo} />
         </a>
       </div>
-    <Footer />
+      <Footer />
       
     </div>
   )

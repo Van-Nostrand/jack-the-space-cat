@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, useLocation } from "react-router-dom";
 
 import Details from "./Details";
 import Navbar from "./Navbar";
@@ -20,6 +20,10 @@ export default function App(){
   let contentRef = useRef();
   let [ currentPage, setCurrentPage ] = useState();
   let engageEffect = useScrollingEffect();
+
+  useEffect(() => {
+    console.log(currentPage);
+  },[currentPage]);
   
 
   /**

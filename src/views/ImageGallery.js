@@ -5,13 +5,9 @@ import { useScrollingEffect } from '../functions/useScrollingEffect';
 
 const ImageGallery = ({ artData, setCurrentPage}) => {
 
-  // let scrollEffectRef = useRef(useScrollingEffect());
-  // let scrollEffect = useScrollingEffect();
   useEffect(() => {
     setCurrentPage("/gallery");
   });
-
-
 
   let imageElements = artData.map((artwork, i) => {
     return <ImageWithObserver 
@@ -19,7 +15,6 @@ const ImageGallery = ({ artData, setCurrentPage}) => {
               width={300}
               key={`image-element-${i}`} />
   }); 
-
 
   return(
     <div className="gallery-page-container">

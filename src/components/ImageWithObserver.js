@@ -33,7 +33,6 @@ const ImageWithObserver = ({imageData, width}) => {
   return(
     <div ref={placeholderRef} className="thumbnail-div"  >
       <div className="thumbnail-hover-text">more info</div>
-      <div className="thumbnail-hover-filter"></div>
       <span className="thumbnail-thumb" ></span>
     </div>
   )

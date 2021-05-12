@@ -8,11 +8,7 @@ const Videos = (props) => {
 
   return(
     <div className="video-page-container">
-
-      
-      
       <Footer />
-      
     </div>
   )
 }

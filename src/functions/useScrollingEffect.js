@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
+/**
+ * needs some serious work, but essentially this will return a boolean if the user has scrolled a certain amount.
+ * written with the intention of triggering a "shrinking navbar" on scroll down, and restoring the navbars size on scroll up
+ * @returns bool
+ */
 export const useScrollingEffect = () => {
   let [ openSesame, setOpenSesame ] = useState(true);
   let [ currentDelta, setCurrentDelta ] = useState(0);
